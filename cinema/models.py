@@ -40,7 +40,8 @@ class Actor(models.Model):
 
 
 def movie_image_path(movie: "Movie", filename: str) -> pathlib.Path:
-    file_name = f"{slugify(movie.title)}-{uuid.uuid4()}{pathlib.Path(filename).suffix}"
+    file_name = (f"{slugify(movie.title)}-{uuid.uuid4()}"
+                 f"{pathlib.Path(filename).suffix}")
     return pathlib.Path("uploads/images/") / pathlib.Path(file_name)
 
 
